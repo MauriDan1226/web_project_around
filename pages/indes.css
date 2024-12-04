@@ -136,19 +136,22 @@ body {
   display: flex;
   flex-direction: column;
   width: 350px;
+  color: #000000;
+  background-color: #ffffff;
+  width: 380px;
+  border: none;
+  border-radius: 5%;
+padding: 14px;  
 }
 
 .popup {
   color: #000000;
-  background-color: #ffffff;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  width: 380px;
   border: none;
-  border-radius: 5%;
-  display: none;
+  position: relative;
+  padding: 60px;
+  background-color: transparent;
 }
+
 .popup__title {
   font-size: 29px;
   margin-top: 30px;
@@ -176,13 +179,14 @@ body {
 }
 .popup__close {
   background-color: transparent;
-  top: -40px;
-  right: -40px;
+  top: 0px;
+  right: 0px;
   border: 50px;
   width: 40px;
   height: 40px;
   position: absolute;
   cursor: pointer;
+  z-index: 400;
 }
 .popup__button {
   cursor: pointer;
@@ -200,10 +204,11 @@ body {
   line-height: 30px;
   padding-left: 20px;
 }
-.dialog{
-  margin: auto;
-  position: ;
-}
+
 .dialog2 {
 display: flex;
+}
+::backdrop {
+  background-color: black;
+  opacity: 0.75;
 }

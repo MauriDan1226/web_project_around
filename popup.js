@@ -1,19 +1,29 @@
 const popup = document.querySelector(".popup");
-popup.showModal();
+const inputName = document.querySelector("#input-name");
+const inputHobbie = document.querySelector("#input-hobbie");
+const inicioUsuario = document.querySelector(".inicio__usuario");
+const inicioDescripcion = document.querySelector(".inicio__descripcion");
+const edicion = document.querySelector(".perfil");
+const buttonClose = document.querySelector(".popup__close");
+const buttonSave = document.querySelector(".popup__button");
+const inicio = document.querySelector(".edicion");
 
-const button = document.querySelector(".popup__button");
-button.addEventListener("click", function unclick() {
-  console.log("hola");
-  console.log(button.textContent);
-  console.log(popup.innerHTML);
-  popup.classList.add("dialog2");
-  popup.classList.remove("dialog");
+
+console.log(edicion);
+inicio.addEventListener("click", function unclick() {
+  popup.showModal();
+  inputName.value = inicioUsuario.textContent;
+  inputHobbie.value = inicioDescripcion.textContent;
 });
 
-const edicion = document.querySelector(".perfil");
-popup.showModal();
-console.log(edicion);
-const inicio = document.querySelector(".edicion");
-inicio.addEventListener("click", function unclick() {
-  console.log("hola" )
+buttonClose.addEventListener("click", function unclick() {
+  popup.close();
+});
+
+buttonSave.addEventListener("click", function unclick(e) {
+  e.preventDefault();
+  inicioUsuario.textContent = inputName.value;
+  inicioDescripcion.textContent = inputHobbie.value;
+    popup.close();
+
 });
