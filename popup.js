@@ -1,12 +1,12 @@
 const popup = document.querySelector(".popup");
 const inputName = document.querySelector("#input-name");
 const inputHobbie = document.querySelector("#input-hobbie");
-const inicioUsuario = document.querySelector(".inicio__usuario");
-const inicioDescripcion = document.querySelector(".inicio__descripcion");
-const edicion = document.querySelector(".perfil");
+const inicioUsuario = document.querySelector(".start__user");
+const inicioDescripcion = document.querySelector(".start__description");
+const edicion = document.querySelector(".profile");
 const buttonClose = document.querySelector(".popup__close");
 const buttonSave = document.querySelector(".popup__button");
-const inicio = document.querySelector(".edicion");
+const inicio = document.querySelector(".start__edition");
 
 
 console.log(edicion);

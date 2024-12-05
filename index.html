@@ -16,20 +16,19 @@
       <img class="header__image" src="./images/VectorTitle.svg" alt="titulo">
     </header>
 
-    <main class="perfil">
-      <section class="inicio">
-        <img class="inicio__image" src="/images/image.jpg" alt="imagen de perfil" />
-        <div class="inicio__start">
-          <div class="inicio__informacion">
-            <h1 class="inicio__usuario">Jacques Cousteau</h1>
-            <p class="inicio__descripcion">Explorador</p>
-          </div>
-          <button class="edicion"><img src="./images/VectorLapiz.png" alt="edicion pagina"></button>
+    <main class="profile">   
+      <section class="start">  
+        <img class="start__image" src="/images/image.jpg" alt="imagen de perfil"/> 
+          <div class="start__information"> 
+            <h1 class="start__user">Jacques Cousteau</h1> 
+            <p class="start__description">Explorador</p> 
+          </div>   
+          <button class="start__edition"><img src="./images/VectorLapiz.png" alt="edicion pagina"></button>  
         </div>
-        <button class="inicio__publicar"><img src="./images/Vector+.png" alt="añadir info"></button>
+        <button class="start__post"><img src="./images/Vector+.png" alt="añadir info"></button> 
       </section>
 
-      <section class="galeria">
+      <section class="gallery">  
         <div class="card">
 
           <div class="post">
@@ -81,21 +80,22 @@
     <dialog class="popup">
       <div class="popup__info">
         <button class="popup__close"><img src="./images/Close Icon.png" alt="tache"></button>
-      <p class="popup__title">Editar perfil</p>
-      <form class="popup__form">
-        <input type="text" class="form__input" id="input-name" name="name" placeholder="Nombre" minlength="2"
-          maxlength="40" required>
-        <input type="text" class="form__input" id="input-hobbie" name="name" placeholder="Acerca de mi" minlength="2"
-          maxlength="200" required>
+        <p class="popup__title">Editar perfil</p>
+        <form class="popup__form">
+        <input type="text" class="popup__input" id="input-name" name="name" placeholder="Nombre" minlength="2"
+            maxlength="40" required>
+          <input type="text" class="popup__input" id="input-hobbie" name="name" placeholder="Acerca de mi" minlength="2"
+            maxlength="200" required>
           <button type="button"class="popup__button">Guardar</button>
-        </div>
-      </form>
-    </div>
-
-      
+          </div>
+        </form>
+      </div>
     </dialog>
   </div>
   </div>
+  <footer class="footer">
+    <p class="footer__copyright">&copy;2024 Mauricio Ramirez</p>
+  </footer>
   <script src="./popup.js"></script>
 </body>
 
