@@ -1,102 +1,141 @@
 <!DOCTYPE html>
 <html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./pages/indes.css" />
+    <title>Alrededor de los EE.UU.</title>
+    <meta name="keywords" content="HTML, CSS, JS" />
+    <meta name="author" content="Mauricio Ramirez" />
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="./pages/indes.css" />
-  <title>Alrededor de los EE.UU.</title>
-  <meta name="keywords" content="HTML, CSS, JS" />
-  <meta name="author" content="Mauricio Ramirez" />
-</head>
+  <body>
+    <div class="page">
+      <header class="header">
+        <img
+          class="header__image"
+          src="./images/VectorTitle.svg"
+          alt="titulo"
+        />
+      </header>
 
-<body>
-  <div class="page">
-    <header class="header">
-      <img class="header__image" src="./images/VectorTitle.svg" alt="titulo">
-    </header>
+      <main class="start">
+        <!-- profile -->
+        <section class="profile">
+          <!-- start -->
+          <img
+            class="profile__image"
+            src="/images/image.jpg"
+            alt="imagen de perfil"
+          />
+          <div class="profile__information">
+            <h1 class="profile__user">Jacques Cousteau</h1>
+            <p class="profile__description">Explorador</p>
+          </div>
+          <button class="profile__edition">
+            <img src="./images/VectorLapiz.png" alt="edicion pagina" />
+          </button>
+          <button class="profile__post">
+            <img src="./images/Vector+.png" alt="añadir info" />
+          </button>
+        </section>
 
-    <main class="profile">   
-      <section class="start">  
-        <img class="start__image" src="/images/image.jpg" alt="imagen de perfil"/> 
-          <div class="start__information"> 
-            <h1 class="start__user">Jacques Cousteau</h1> 
-            <p class="start__description">Explorador</p> 
-          </div>   
-          <button class="start__edition"><img src="./images/VectorLapiz.png" alt="edicion pagina"></button>  
+        <section class="gallery">
+          <div class="card">
+            <div class="post">
+              <img class="post__image" src="./images/1.jpg" alt="imagen 1" />
+              <div class="post__info">
+                <p class="post__title">Valle de Yosemite</p>
+                <button class="post__button">
+                  <img src="./images/VectorCorazon.svg" alt="corazon" />
+                </button>
+              </div>
+            </div>
+
+            <div class="post">
+              <img class="post__image" src="./images/2.png" alt="imagen 2" />
+              <div class="post__info">
+                <p class="post__title">Lago Louise</p>
+                <button class="post__button">
+                  <img src="./images/VectorCorazon.svg" alt="corazon" />
+                </button>
+              </div>
+            </div>
+            <div class="post">
+              <img class="post__image" src="./images/3.png" alt="imagen 3" />
+              <div class="post__info">
+                <p class="post__title">Montañas Calvas</p>
+                <button class="post__button">
+                  <img src="./images/VectorCorazon.svg" alt="corazon" />
+                </button>
+              </div>
+            </div>
+            <div class="post">
+              <img class="post__image" src="./images/4.png" alt="imagen 4" />
+              <div class="post__info">
+                <p class="post__title">Latemar</p>
+                <button class="post__button">
+                  <img src="./images/VectorCorazon.svg" alt="corazon" />
+                </button>
+              </div>
+            </div>
+            <div class="post">
+              <img class="card__image" src="./images/5.png" alt="imagen 5" />
+              <div class="post__info">
+                <p class="post__title">Vanois National...</p>
+                <button class="post__button">
+                  <img src="./images/VectorCorazon.svg" alt="corazon" />
+                </button>
+              </div>
+            </div>
+            <div class="post">
+              <img class="post__image" src="./images/6.png" alt="imagen 6" />
+              <div class="post__info">
+                <p class="post__title">Lago di Braies</p>
+                <button class="post__button">
+                  <img src="./images/VectorCorazon.svg" alt="corazon" />
+                </button>
+              </div>
+            </div>
+          </div>
+          
+        </section>
+      </main>
+      <dialog class="popup">
+        <div class="popup__info">
+          <button class="popup__close">
+            <img src="./images/CloseIcon.png" alt="tache"/>
+          </button>
+          <p class="popup__title">Editar perfil</p>
+          <form class="popup__form">
+            <input
+              type="text"
+              class="popup__input"
+              id="input-name"
+              name="name"
+              placeholder="Nombre"
+              minlength="2"
+              maxlength="40"
+              required
+            />
+            <input
+              type="text"
+              class="popup__input"
+              id="input-hobbie"
+              name="name"
+              placeholder="Acerca de mi"
+              minlength="2"
+              maxlength="200"
+              required
+            />
+            <button type="button" class="popup__button">Guardar</button>
+          </form>
         </div>
-        <button class="start__post"><img src="./images/Vector+.png" alt="añadir info"></button> 
-      </section>
-
-      <section class="gallery">  
-        <div class="card">
-
-          <div class="post">
-            <img class="post__image" src="./images/1.jpg" alt="imagen 1" />
-            <div class="post__info">
-              <p class="post__title">Valle de Yosemite</p>
-              <button class="post__button"><img src="./images/VectorCorazon.svg" alt="corazon"></button>
-            </div>
-          </div>
-
-          <div class="post">
-            <img class="post__image" src="./images/2.png" alt="imagen 2" />
-            <div class="post__info">
-              <p class="post__title">Lago Louise</p>
-              <button class="post__button"><img src="./images/VectorCorazon.svg" alt="corazon"></button>
-            </div>
-          </div>
-          <div class="post">
-            <img class="post__image" src="./images/3.png" alt="imagen 3" />
-            <div class="post__info">
-              <p class="post__title">Montañas Calvas</p>
-              <button class="post__button"><img src="./images/VectorCorazon.svg" alt="corazon"></button>
-            </div>
-          </div>
-          <div class="post">
-            <img class="post__image" src="./images/4.png" alt="imagen 4" />
-            <div class="post__info">
-              <p class="post__title">Latemar</p>
-              <button class="post__button"><img src="./images/VectorCorazon.svg" alt="corazon"></button>
-            </div>
-          </div>
-          <div class="post">
-            <img class="card__image" src="./images/5.png" alt="imagen 5" />
-            <div class="post__info">
-              <p class="post__title">Vanois National...</p>
-              <button class="post__button"><img src="./images/VectorCorazon.svg" alt="corazon"></button>
-            </div>
-          </div>
-          <div class="post">
-            <img class="post__image" src="./images/6.png" alt="imagen 6" />
-            <div class="post__info">
-              <p class="post__title">Lago di Braies</p>
-              <button class="post__button"><img src="./images/VectorCorazon.svg" alt="corazon"></button>
-            </div>
-          </div>
-        </div> -
-      </section>
-    </main>
-    <dialog class="popup">
-      <div class="popup__info">
-        <button class="popup__close"><img src="./images/Close Icon.png" alt="tache"></button>
-        <p class="popup__title">Editar perfil</p>
-        <form class="popup__form">
-        <input type="text" class="popup__input" id="input-name" name="name" placeholder="Nombre" minlength="2"
-            maxlength="40" required>
-          <input type="text" class="popup__input" id="input-hobbie" name="name" placeholder="Acerca de mi" minlength="2"
-            maxlength="200" required>
-          <button type="button"class="popup__button">Guardar</button>
-          </div>
-        </form>
-      </div>
-    </dialog>
-  </div>
-  </div>
-  <footer class="footer">
-    <p class="footer__copyright">&copy;2024 Mauricio Ramirez</p>
-  </footer>
-  <script src="./popup.js"></script>
-</body>
-
+      </dialog>
+      <footer class="footer">
+        <p class="footer__copyright">&copy;2024 Mauricio Ramirez</p>
+      </footer>
+    </div>
+    <script src="./index.js"></script>
+  </body>
 </html>

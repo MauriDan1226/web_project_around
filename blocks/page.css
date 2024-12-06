@@ -1,9 +1,9 @@
 .page {
-    font-size: 16px;
-    line-height: 20px;
-    color: white;
-    max-width: 1600px;
-    width: 100%;
-    display: block;
-  }
-  
+  margin: auto;
+  font-size: 16px;
+  line-height: 20px;
+  color: white;
+  max-width: 1600px;
+  width: 100%;
+  display: block;
+}

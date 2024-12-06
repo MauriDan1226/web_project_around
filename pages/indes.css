@@ -1,7 +1,4 @@
-@font-face {
-  font-family: "inter";
-  src: url(./../vendor/fonts/Inter-Regular.woff2);
-}
+
 @import url("../blocks/body.css");
 @import url("../blocks/page.css");
 @import url("../blocks/header.css");
@@ -13,4 +10,3 @@
 @import url("../blocks/popup.css");
 @import url("../blocks/footer.css");
 @import url("../blocks/backdrop.css");
-

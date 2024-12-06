@@ -1,24 +1,32 @@
 .post {
-  border-radius: 5%;
+  position: relative;
+  background-color: white;
+  color: black;
+  text-overflow: ellipsis;
+  white-space: nowrap;
   overflow: hidden;
-  background-color: #ffffff;
-  color: #000000;
+  max-width: 282px;
+  width: 100%;
+  height: 361px;
+  border-radius: 10px;
+  opacity: 0px;
 }
 .post__info {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
   font-size: 24px;
   font-weight: 900;
   text-align: left;
   margin-left: 15px;
   margin-right: 15px;
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .post__image {
   width: 100%;
-  max-width: 282px;
   height: 282px;
+  object-fit: cover;
 }
 .post__button {
   background-color: #ffffff;
@@ -27,4 +35,7 @@
   display: flex;
   justify-content: center;
   border: none;
+}
+.post__button:hover {
+  opacity: .7;
 }
