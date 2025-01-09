@@ -82,3 +82,52 @@
 .dialog2 {
   display: flex;
 }
+
+.popup-image{
+  position: relative;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  justify-content: center;
+  align-items: center;
+
+}
+.popup-image__info{
+  display: flex;
+  flex-direction: column;
+  background-color: transparent;
+  align-items: center;
+  justify-items: center;
+  position: relative;
+ 
+
+}
+.popup-image__photo{
+  border-radius: 23px;
+  object-fit: cover;
+  width: 100%;
+  max-width:75vw;
+  max-height: 75vh;
+
+
+}
+.popup-image[open]{
+  display: flex;
+}
+.popup-image__close{
+  top: -33px;
+  right: -33px;
+  border: 50px;
+  width: 40px;
+  height: 40px;
+  z-index: 400;
+  position: absolute;
+  cursor: pointer;
+  background-color: transparent;
+}
+.popup-image__title{
+  color: #ffffff;
+}

@@ -13,7 +13,7 @@
     <div class="page">
       <header class="header">
         <img
-          class="header__image"  
+          class="header__image"
           src="./images/VectorTitle.svg"
           alt="titulo"
         />
@@ -39,70 +39,13 @@
         </section>
 
         <section class="gallery">
-          <div class="card">
-            <div class="post">
-              <img class="post__image" src="./images/1.jpg" alt="fotografía de valle" />
-              <div class="post__info">
-                <p class="post__title">Valle de Yosemite</p>
-                <button class="post__button">
-                  <img src="./images/VectorCorazon.svg" alt="corazon" />
-                </button>
-              </div>
-            </div>
-
-            <div class="post">
-              <img class="post__image" src="./images/2.png" alt="fotografía de lago" />
-              <div class="post__info">
-                <p class="post__title">Lago Louise</p>
-                <button class="post__button">
-                  <img src="./images/VectorCorazon.svg" alt="corazon" />
-                </button>
-              </div>
-            </div>
-            <div class="post">
-              <img class="post__image" src="./images/3.png" alt="fotografía de montañas calavas" />
-              <div class="post__info">
-                <p class="post__title">Montañas Calvas</p>
-                <button class="post__button">
-                  <img src="./images/VectorCorazon.svg" alt="corazon" />
-                </button>
-              </div>
-            </div>
-            <div class="post">
-              <img class="post__image" src="./images/4.png" alt="fotografía de latemar" />
-              <div class="post__info">
-                <p class="post__title">Latemar</p>
-                <button class="post__button">
-                  <img src="./images/VectorCorazon.svg" alt="corazon" />
-                </button>
-              </div>
-            </div>
-            <div class="post">
-              <img class="card__image" src="./images/5.png" alt="fotografía de vanois" />
-              <div class="post__info">
-                <p class="post__title">Vanois National Park</p>
-                <button class="post__button">
-                  <img src="./images/VectorCorazon.svg" alt="corazon" />
-                </button>
-              </div>
-            </div>
-            <div class="post">
-              <img class="post__image" src="./images/6.png" alt="fotografía de lago" />
-              <div class="post__info">
-                <p class="post__title">Lago di Braies</p>
-                <button class="post__button">
-                  <img src="./images/VectorCorazon.svg" alt="corazon" />
-                </button>
-              </div>
-            </div>
-          </div>
-          
+          <div class="cards"><!-- card --></div>
         </section>
       </main>
       <dialog class="popup">
         <div class="popup__info">
           <button class="popup__close">
-            <img src="./images/CloseIcon.png" alt="tache"/>
+            <img src="./images/CloseIcon.png" alt="tache" />
           </button>
           <p class="popup__title">Editar perfil</p>
           <form class="popup__form">
@@ -130,10 +73,66 @@
           </form>
         </div>
       </dialog>
+      <dialog class="popup" id="add"> <!-- popup=add -->
+        <div class="popup__info">
+          <button class="popup__close" id="add-close">
+            <img src="./images/CloseIcon.png" alt="tache" />
+          </button>
+          <p class="popup__title">Nuevo lugar</p>
+          <form class="popup__form">
+            <input
+              type="text"
+              class="popup__input"
+              id="add-title"
+              name="title"
+              placeholder="Titulo"
+              minlength="2"
+              maxlength="40"
+              required
+            />
+            <input
+              type="text"
+              class="popup__input"
+              id="add-image"
+              name="name"
+              placeholder="Enlace a la imagen"
+              minlength="2"
+              maxlength="200"
+              required
+            />
+            <button type="button" class="popup__button" id="add-button">Crear</button>
+          </form>
+        </div>
+      </dialog>
       <footer class="footer">
         <p class="footer__copyright">&copy;2024 Mauricio Ramirez</p>
       </footer>
     </div>
+    <template id="card_template">
+      <div class="card">
+        <button class="card__trash">
+          <img src="./images/Trash.svg" alt="bote de basura" />
+        </button>
+        <img
+          class="card__image"
+          src="./images/2.png"
+          alt="fotografía de lago"
+        />
+        <div class="card__info">
+          <p class="card__title">Lago Louise</p>
+          <button class="card__button"></button>
+        </div>
+      </div>
+    </template>
+    <dialog class="popup-image" >
+      <div class="popup-image__info">
+        <div class="popup-image__close">
+          <img src="./images/CloseIcon.png" alt="tache" />
+        </div>
+        <img class="popup-image__photo"  src="./images/1.jpg" alt="ejemplo">
+        <p class="popup-image__title">nombre de card</p>
+      </div>
+    </dialog>
     <script src="./scripts/index.js"></script>
   </body>
 </html>
