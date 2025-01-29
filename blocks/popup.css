@@ -131,3 +131,10 @@
 .popup-image__title{
   color: #ffffff;
 }
+.popup__error{
+  color: red;
+  font-size: 15px;
+  margin-top: -42px;
+  margin-left: 14px;
+
+}

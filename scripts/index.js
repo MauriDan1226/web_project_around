@@ -78,10 +78,10 @@ initialCards.forEach((data) => {
     popupImageBig.src = data.link;
     imageBigTitle.textContent = data.name;
   });
-  popupClose.addEventListener("click", function(){
+  popupClose.addEventListener("click", function () {
     imageBig.close();
   })
- 
+
 
 });
 
@@ -147,6 +147,50 @@ addButton.addEventListener("click", function createcard(e) {
   cardImage.addEventListener("click", function () {
     imageBig.showModal();
     popupImageBig.src = link;
-    imageBigTitle.textContent = name;});
-  
+    imageBigTitle.textContent = name;
+  });
+
 });
+
+//enventos con validacion de formularios 
+
+const formulario= document.querySelector(".popup__form")
+
+inputName.addEventListener("blur", validar);
+inputHobbie.addEventListener("blur", validar);
+addTitle.addEventListener("blur", validar);
+addImage.addEventListener("blur", validar);
+
+function validar(evt) {
+  console.log(evt.target.validationMessage);
+
+  if (evt.target.value.trim() === "") {
+    mostrarAlerta(evt.target.validationMessage);
+  } else {
+    console.log("si hay algo")
+  }
+
+  console.log(evt.target.id)
+}
+
+function mostrarAlerta(mensaje, referencia) {
+  //generar una alerta 
+  const error= document.createElement("p"); // no va 
+  error.textContent = mensaje;
+
+ //inyectar el error al formulario 
+
+ //referencia.appendChild(error) // no va 
+
+
+
+
+}
+
+
+
+
+
+
+
+

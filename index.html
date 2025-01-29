@@ -59,6 +59,10 @@
               maxlength="40"
               required
             />
+            <p class="popup__error" id="titulo-nombre">
+              Prolonga este texto a 2 caracteres o más (en este momento tiene 1
+              carácter).
+            </p>
             <input
               type="text"
               class="popup__input"
@@ -69,11 +73,17 @@
               maxlength="200"
               required
             />
+            <p class="popup__error" id="titulo-hobbie">
+              Prolonga este texto a 2 caracteres o más (en este momento tiene 1
+              carácter).
+            </p>
+
             <button type="button" class="popup__button">Guardar</button>
           </form>
         </div>
       </dialog>
-      <dialog class="popup" id="add"> <!-- popup=add -->
+      <dialog class="popup" id="add">
+        <!-- popup=add -->
         <div class="popup__info">
           <button class="popup__close" id="add-close">
             <img src="./images/CloseIcon.png" alt="tache" />
@@ -86,10 +96,17 @@
               id="add-title"
               name="title"
               placeholder="Titulo"
-              minlength="2"
-              maxlength="40"
+              minlength="3"
+              maxlength="4"
               required
             />
+            
+
+            <p class="popup__error" id="titulo-image">
+              Prolonga este texto a 2 caracteres o más (en este momento tiene 1
+              carácter).
+            </p>
+
             <input
               type="text"
               class="popup__input"
@@ -100,7 +117,15 @@
               maxlength="200"
               required
             />
-            <button type="button" class="popup__button" id="add-button">Crear</button>
+
+            <p class="popup__error" id="titulo-enlace">
+              Prolonga este texto a 2 caracteres o más (en este momento tiene 1
+              carácter).
+            </p>
+
+            <button type="button" class="popup__button" id="add-button">
+              Crear
+            </button>
           </form>
         </div>
       </dialog>
@@ -124,12 +149,12 @@
         </div>
       </div>
     </template>
-    <dialog class="popup-image" >
+    <dialog class="popup-image">
       <div class="popup-image__info">
         <div class="popup-image__close">
           <img src="./images/CloseIcon.png" alt="tache" />
         </div>
-        <img class="popup-image__photo"  src="./images/1.jpg" alt="ejemplo">
+        <img class="popup-image__photo" src="./images/1.jpg" alt="ejemplo" />
         <p class="popup-image__title">nombre de card</p>
       </div>
     </dialog>
