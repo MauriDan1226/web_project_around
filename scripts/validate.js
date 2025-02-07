@@ -54,7 +54,7 @@ const showInputError = (formElement, inputElement, errorMessage) => {
 
 // Establece los eventos de validación para cada input
  const setEventListeners = (formElement) => {
-  const inputList = Array.from(formElement.querySelectorAll(".form__input"));
+  const inputList = Array.from(formElement.querySelectorAll(".popup__input"));  
   const buttonElement = formElement.querySelector(".popup__button");
 
   // aquí, para comprobar el estado del botón al principio
