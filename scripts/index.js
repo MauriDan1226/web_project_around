@@ -154,6 +154,8 @@ addButton.addEventListener("click", function createcard(e) {
 
 //enventos con validacion de formularios 
 
+
+/* 
 const formulario= document.querySelector(".popup__form")
 
 inputName.addEventListener("blur", validar);
@@ -187,6 +189,7 @@ function mostrarAlerta(mensaje, referencia) {
 
 }
 
+ */
 
 
 

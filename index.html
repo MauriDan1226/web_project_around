@@ -48,7 +48,7 @@
             <img src="./images/CloseIcon.png" alt="tache" />
           </button>
           <p class="popup__title">Editar perfil</p>
-          <form class="popup__form">
+          <form class="popup__form" novalidate>
             <input
               type="text"
               class="popup__input"
@@ -59,10 +59,9 @@
               maxlength="40"
               required
             />
-            <p class="popup__error" id="titulo-nombre">
-              Prolonga este texto a 2 caracteres o más (en este momento tiene 1
-              carácter).
-            </p>
+
+            <span class="input-name-error"></span>
+
             <input
               type="text"
               class="popup__input"
@@ -73,10 +72,8 @@
               maxlength="200"
               required
             />
-            <p class="popup__error" id="titulo-hobbie">
-              Prolonga este texto a 2 caracteres o más (en este momento tiene 1
-              carácter).
-            </p>
+
+            <span class="input-hobbie-error"></span>
 
             <button type="button" class="popup__button">Guardar</button>
           </form>
@@ -89,23 +86,19 @@
             <img src="./images/CloseIcon.png" alt="tache" />
           </button>
           <p class="popup__title">Nuevo lugar</p>
-          <form class="popup__form">
+          <form class="popup__form" novalidate>
             <input
               type="text"
               class="popup__input"
               id="add-title"
               name="title"
               placeholder="Titulo"
-              minlength="3"
-              maxlength="4"
+              minlength="2"
+              maxlength="30"
               required
             />
-            
 
-            <p class="popup__error" id="titulo-image">
-              Prolonga este texto a 2 caracteres o más (en este momento tiene 1
-              carácter).
-            </p>
+            <span class="add-title-error"></span>
 
             <input
               type="text"
@@ -118,10 +111,7 @@
               required
             />
 
-            <p class="popup__error" id="titulo-enlace">
-              Prolonga este texto a 2 caracteres o más (en este momento tiene 1
-              carácter).
-            </p>
+            <span class="add-image-error"></span>
 
             <button type="button" class="popup__button" id="add-button">
               Crear
@@ -158,6 +148,7 @@
         <p class="popup-image__title">nombre de card</p>
       </div>
     </dialog>
+    <script src="./scripts/validate.js"></script>
     <script src="./scripts/index.js"></script>
   </body>
 </html>
