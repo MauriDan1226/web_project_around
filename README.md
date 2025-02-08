@@ -20,4 +20,4 @@ Form y Dialog: Como elementos fundamentales para recolectar y editar informació
 El proyecto se encuentra en etapas iniciales, pero estas herramientas y metodologías establecen una base sólida para futuras expansiones y mejoras.
 
 
-[¡Soy un link! :)](https://github.com/MauriDan1226/web_project_around-main)
+[¡Soy un link! :)](https://github.com/MauriDan1226/web_project_around?tab=readme-ov-file)
