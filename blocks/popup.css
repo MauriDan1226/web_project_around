@@ -147,3 +147,10 @@
   margin-left: 14px;
 
 }
+
+
+.popup__button_disabled{
+
+  pointer-events: none;
+  opacity: 0.5;
+}
