@@ -1,3 +1,6 @@
+import Card from "./card.js";
+import FormValideitor from "./formValidator.js" 
+
 const initialCards = [
   {
     name: "Valle de Yosemite",
@@ -44,13 +47,35 @@ const cards = document.querySelector(".cards");
 const imageBigTitle = document.querySelector(".popup-image__title");
 const popupImageBig = document.querySelector(".popup-image__photo");
 const popupClose = document.querySelector(".popup-image__close");
+const editProfileForm = document.querySelector("#edit-profile-form");
 
 /* addClose.forEach(dialog=>{})
 addClose.addEventListener("click",()=>{ 
   console.log ("click")
   this.close}) */
+const createCard = (data) => {
+  return new Card(data, "#card_template").getTemplate();
+  //es lo mismo que hacer c1=new card
+};
+
+const renderCard = (data, cards) => {
+  cards.prepend(createCard(data));
+};
 
 initialCards.forEach((data) => {
+  renderCard(data, cards);
+});
+
+
+
+/* const c1=new Card({
+  name:"acapulco",
+  link:"https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/yosemite.jpg"
+},"#card_template")
+console.log(c1.getTemplate())
+cards.append(c1.getTemplate()); */
+
+/* initialCards.forEach((data) => {
   const cardTemplate = document.querySelector("#card_template").content;
   const card = cardTemplate.querySelector(".card").cloneNode(true);
 
@@ -83,7 +108,7 @@ initialCards.forEach((data) => {
   })
 
 
-});
+}); */
 
 console.log(edicion);
 inicio.addEventListener("click", function unclick() {
@@ -149,11 +174,26 @@ addButton.addEventListener("click", function createcard(e) {
     popupImageBig.src = link;
     imageBigTitle.textContent = name;
   });
-
 });
 
-//enventos con validacion de formularios 
+ 
+const enableValidation={
+  formSelector: ".popup__form",
+  inputSelector: ".popup__input",
+  submitButtonSelector: ".popup__button",
+  inactiveButtonClass: "popup__button_disabled",
+  inputErrorClass: "popup__input_type_error",
+  errorClass: "popup__error_visible",
+};
 
+const profileFormValideitor=new FormValideitor(enableValidation,editProfileForm)
+profileFormValideitor.enableValidation()
+
+const addCardValidator=new FormValideitor(enableValidation,add)
+addCardValidator.enableValidation()
+
+
+//enventos con validacion de formularios
 
 /* 
 const formulario= document.querySelector(".popup__form")
@@ -190,10 +230,3 @@ function mostrarAlerta(mensaje, referencia) {
 }
 
  */
-
-
-
-
-
-
-

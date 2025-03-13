@@ -6,7 +6,7 @@
 
 //Muestra el mensaje de error
 
-
+/*
 
 const showInputError = (formElement, inputElement, errorMessage) => {
   const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
@@ -62,7 +62,7 @@ const showInputError = (formElement, inputElement, errorMessage) => {
   // Inicializar el estado del botón de submit
   inputList.forEach((inputElement) => {
     inputElement.addEventListener("input", function () {
-      console.log("123")
+
       checkInputValidity(formElement, inputElement);
       // y aquí, para comprobarlo cada vez que haya cambios en la entrada de algún campo
       toggleButtonState(inputList, buttonElement);
@@ -89,11 +89,4 @@ const showInputError = (formElement, inputElement, errorMessage) => {
   });
 };
 
-enableValidation({
-  formSelector: ".popup__form",
-  inputSelector: ".popup__input",
-  submitButtonSelector: ".popup__button",
-  inactiveButtonClass: "popup__button_disabled",
-  inputErrorClass: "popup__input_type_error",
-  errorClass: "popup__error_visible",
-});
+*/
