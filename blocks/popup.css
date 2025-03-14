@@ -171,8 +171,8 @@
     }
 
     .popup__close{
-      margin: 21px -1px -33px -1px;
-    }
+/*       margin: 21px -1px -33px -1px;
+ */    }
   }
 
 
@@ -188,5 +188,6 @@
       }
    */
       .popup__close{
-        margin: -43px -4px -31px -92px;      }
+          top: 0px;
+        right: 0px;   }
     }

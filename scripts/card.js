@@ -39,7 +39,8 @@ _pruebaPrivada(){
 
     
     const imageBig = document.querySelector(".popup-image");
-    const imageBigTitle=document.querySelector(".popup-image");
+    const popupImageBig=document.querySelector(".popup-image__photo")
+    const imageBigTitle=document.querySelector(".popup-image__title");
     cardImage.addEventListener("click", () =>{
       imageBig.showModal();
       popupImageBig.src = this._link;
