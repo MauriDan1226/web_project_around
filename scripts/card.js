@@ -37,8 +37,25 @@ _pruebaPrivada(){
       console.log("holaaa");
     });
 
+    
+    const imageBig = document.querySelector(".popup-image");
+    const imageBigTitle=document.querySelector(".popup-image");
+    cardImage.addEventListener("click", () =>{
+      imageBig.showModal();
+      popupImageBig.src = this._link;
+      imageBigTitle.textContent = this._name;
+    });
+
+    const popupClose= document.querySelector(".popup-image__close")
+    popupClose.addEventListener("click", () =>{
+      imageBig.close();
+    })
+  
+
     return cardClonada;
   }
+
+ 
 }
 
 export default Card;
