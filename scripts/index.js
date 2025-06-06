@@ -1,7 +1,16 @@
+import Api from "./Api.js";
 import Card from "./card.js";
-import FormValideitor from "./formValidator.js" 
+import FormValideitor from "./formValidator.js";
 
-const initialCards = [
+const api = new Api({
+  baseUrl: "https://around-api.es.tripleten-services.com/v1",
+  headers: {
+    authorization: "bbb4ca89-f56c-4fd9-b05b-24621e2a0c44",
+    "Content-Type": "application/json",
+  },
+});
+
+/* const initialCards = [
   {
     name: "Valle de Yosemite",
     link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/yosemite.jpg",
@@ -26,7 +35,7 @@ const initialCards = [
     name: "Lago di Braies",
     link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/lago.jpg",
   },
-];
+]; */
 
 const popup = document.querySelector(".popup");
 const inputName = document.querySelector("#input-name");
@@ -54,7 +63,9 @@ addClose.addEventListener("click",()=>{
   console.log ("click")
   this.close}) */
 const createCard = (data) => {
-  return new Card(data, "#card_template").getTemplate();
+  return new Card(data, "#card_template", (cardId) => {
+    api.deleteCard(cardId);
+  }).getTemplate();
   //es lo mismo que hacer c1=new card
 };
 
@@ -62,11 +73,23 @@ const renderCard = (data, cards) => {
   cards.prepend(createCard(data));
 };
 
+/*
 initialCards.forEach((data) => {
   renderCard(data, cards);
 });
+*/
 
+const loadInitialCards = async () => {
+  try {
+    const initialCards = await api.getInitialCards(); //inifinitamente
+    console.log(initialCards);
+    initialCards.forEach((data) => {
+      renderCard(data, cards);
+    });
+  } catch (err) {}
+};
 
+loadInitialCards();
 
 /* const c1=new Card({
   name:"acapulco",
@@ -140,12 +163,20 @@ addClose.addEventListener("click", function unclick() {
 
 // popup de nueva cards
 
-addButton.addEventListener("click", function createcard(e) {
+addButton.addEventListener("click", async (e) => {
   e.preventDefault();
 
   const name = addTitle.value;
   const link = addImage.value;
 
+  const data = { name, link };
+
+  try {
+    const newCard = await api.createCard(data); //ES CUANDO LA CREA EN EL SERVIDORs
+    renderCard(newCard, cards);
+  } catch (err) {}
+
+  /*
   const cardTemplate = document.querySelector("#card_template").content;
   const card = cardTemplate.querySelector(".card").cloneNode(true);
 
@@ -173,11 +204,10 @@ addButton.addEventListener("click", function createcard(e) {
     imageBig.showModal();
     popupImageBig.src = link;
     imageBigTitle.textContent = name;
-  });
+  });*/
 });
 
- 
-const enableValidation={
+const enableValidation = {
   formSelector: ".popup__form",
   inputSelector: ".popup__input",
   submitButtonSelector: ".popup__button",
@@ -186,12 +216,14 @@ const enableValidation={
   errorClass: "popup__error_visible",
 };
 
-const profileFormValideitor=new FormValideitor(enableValidation,editProfileForm)
-profileFormValideitor.enableValidation()
+const profileFormValideitor = new FormValideitor(
+  enableValidation,
+  editProfileForm
+);
+profileFormValideitor.enableValidation();
 
-const addCardValidator=new FormValideitor(enableValidation,add)
-addCardValidator.enableValidation()
-
+const addCardValidator = new FormValideitor(enableValidation, add);
+addCardValidator.enableValidation();
 
 //enventos con validacion de formularios
 
