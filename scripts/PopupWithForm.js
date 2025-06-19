@@ -23,4 +23,5 @@ export default class PopupWithForm extends Popup {
   }
 
   open() {}
+  close() {}
 }

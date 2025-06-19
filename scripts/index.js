@@ -53,7 +53,7 @@ const addImage = document.querySelector("#add-image");
 const addClose = document.querySelector("#add-close");
 const addButton = document.querySelector("#add-button");
 const cards = document.querySelector(".cards");
-const imageBigTitle = document.querySelector(".popup-image__title");
+const imageBigTitle = document.querySelector(".popup__title");
 const popupImageBig = document.querySelector(".popup-image__photo");
 const popupClose = document.querySelector(".popup-image__close");
 const editProfileForm = document.querySelector("#edit-profile-form");
@@ -63,9 +63,26 @@ addClose.addEventListener("click",()=>{
   console.log ("click")
   this.close}) */
 const createCard = (data) => {
-  return new Card(data, "#card_template", (cardId) => {
-    api.deleteCard(cardId);
-  }).getTemplate();
+  return new Card(
+    data,
+    "#card_template",
+    (cardId, cardClonada) => {
+      api.deleteCard(cardId).then(() => {
+        cardClonada.removeCard();
+      });
+    },
+    (cardId, cardClonada, isLiked) => {
+      if (isLiked) {
+        api.removeLike(cardId).then(() => {
+          cardClonada.likeCard();
+        });
+      } else {
+        api.addLike(cardId).then(() => {
+          cardClonada.likeCard();
+        });
+      }
+    }
+  ).getTemplate();
   //es lo mismo que hacer c1=new card
 };
 
@@ -84,6 +101,7 @@ const loadInitialCards = async () => {
     const initialCards = await api.getInitialCards(); //inifinitamente
     console.log(initialCards);
     initialCards.forEach((data) => {
+      console.log(data, cards);
       renderCard(data, cards);
     });
   } catch (err) {}
