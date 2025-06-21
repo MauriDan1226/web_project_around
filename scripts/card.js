@@ -7,15 +7,14 @@ class Card {
     this._handlerDelete = handlerDelete;
     console.log(this._handlerDelete);
     this._handelLike = handelLike;
-    console.log(data, "Aprovechando");
     this._isLiked = data.isLiked;
     this._handeRemoveLike = handeRemoveLike;
   }
 
   //esto clona una card como una funcion privada,
   _pruebaPrivada() {
-    const cardTemplate = document.querySelector(this._cardSelector).content;
-    const card = cardTemplate.querySelector(".card").cloneNode(true);
+    this._cardTemplate = document.querySelector(this._cardSelector).content;
+    this._card = cardTemplate.querySelector(".card").cloneNode(true);
     return card;
   }
   removeCard() {
@@ -29,29 +28,22 @@ class Card {
 
   getTemplate() {
     this._cardClonada = this._pruebaPrivada();
-    const cardTitle = this._cardClonada.querySelector(".card__title");
+    this._cardTitle = this._cardClonada.querySelector(".card__title");
     cardTitle.textContent = this._name;
-    const addImage = this._cardClonada.querySelector("#add-image");
-    const cardImage = this._cardClonada.querySelector(".card__image");
+    this._addImage = this._cardClonada.querySelector("#add-image");
+    this._cardImage = this._cardClonada.querySelector(".card__image");
     cardImage.src = this._link;
+
     //eliminar imagenes
-    const postTrash = this._cardClonada.querySelector(".card__trash");
+    this._postTrash = this._cardClonada.querySelector(".card__trash");
 
     postTrash.addEventListener("click", () => {
       console.log("hola");
 
       this._handlerDelete(this._id, this);
-
-      /*      (cardId, cardClonada) => {
-      api.deleteCard(cardId).then(() => {
-        cardClonada.removeCard();
-      });
-    }
-       */
     });
 
     //like a imagenes
-    //heartButton = this._cardClonada.querySelector(".card__image");
 
     this._postCorazon = this._cardClonada.querySelector(".card__button");
     if (this._isLiked) {
@@ -66,16 +58,16 @@ class Card {
       console.log("holaaa");
     });
 
-    const imageBig = document.querySelector("#popup-image");
-    const popupImageBig = imageBig.querySelector(".popup__photo");
-    const imageBigTitle = document.querySelector(".popup__title");
+    this._imageBig = document.querySelector("#popup-image");
+    this._popupImageBig = imageBig.querySelector(".popup__photo");
+    this._imageBigTitle = document.querySelector(".popup__title");
     cardImage.addEventListener("click", () => {
       imageBig.showModal();
       popupImageBig.src = this._link;
       imageBigTitle.textContent = this._name;
     });
 
-    const popupClose = imageBig.querySelector(".popup__close");
+    this._popupClose = imageBig.querySelector(".popup__close");
     popupClose.addEventListener("click", () => {
       imageBig.close();
     });

@@ -1,41 +1,9 @@
-import Api from "./Api.js";
+import Api, { api } from "./Api.js";
 import Card from "./card.js";
 import FormValideitor from "./formValidator.js";
-
-const api = new Api({
-  baseUrl: "https://around-api.es.tripleten-services.com/v1",
-  headers: {
-    authorization: "bbb4ca89-f56c-4fd9-b05b-24621e2a0c44",
-    "Content-Type": "application/json",
-  },
-});
-
-/* const initialCards = [
-  {
-    name: "Valle de Yosemite",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/yosemite.jpg",
-  },
-  {
-    name: "Lago Louise",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/lake-louise.jpg",
-  },
-  {
-    name: "Montañas Calvas",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/bald-mountains.jpg",
-  },
-  {
-    name: "Latemar",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/latemar.jpg",
-  },
-  {
-    name: "Parque Nacional de la Vanoise",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/vanoise.jpg",
-  },
-  {
-    name: "Lago di Braies",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/lago.jpg",
-  },
-]; */
+import Section from "./Section.js";
+import PopupWithForm from "./PopupWithForm.js";
+import PopupWithImage from "./PopupWithImage.js";
 
 const popup = document.querySelector(".popup");
 const inputName = document.querySelector("#input-name");
@@ -54,14 +22,10 @@ const addClose = document.querySelector("#add-close");
 const addButton = document.querySelector("#add-button");
 const cards = document.querySelector(".cards");
 const imageBigTitle = document.querySelector(".popup__title");
-const popupImageBig = document.querySelector(".popup-image__photo");
-const popupClose = document.querySelector(".popup-image__close");
+const popupImageBig = document.querySelector(".popup__photo");
+const popupClose = document.querySelector(".popup__close");
 const editProfileForm = document.querySelector("#edit-profile-form");
 
-/* addClose.forEach(dialog=>{})
-addClose.addEventListener("click",()=>{ 
-  console.log ("click")
-  this.close}) */
 const createCard = (data) => {
   return new Card(
     data,
@@ -90,12 +54,6 @@ const renderCard = (data, cards) => {
   cards.prepend(createCard(data));
 };
 
-/*
-initialCards.forEach((data) => {
-  renderCard(data, cards);
-});
-*/
-
 const loadInitialCards = async () => {
   try {
     const initialCards = await api.getInitialCards(); //inifinitamente
@@ -108,48 +66,6 @@ const loadInitialCards = async () => {
 };
 
 loadInitialCards();
-
-/* const c1=new Card({
-  name:"acapulco",
-  link:"https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/yosemite.jpg"
-},"#card_template")
-console.log(c1.getTemplate())
-cards.append(c1.getTemplate()); */
-
-/* initialCards.forEach((data) => {
-  const cardTemplate = document.querySelector("#card_template").content;
-  const card = cardTemplate.querySelector(".card").cloneNode(true);
-
-  const cardImage = card.querySelector(".card__image");
-  cardImage.src = data.link;
-  const postCorazon = card.querySelector(".card__button");
-
-  cardImage.alt = data.name;
-  postCorazon.addEventListener("click", function unclick() {
-    postCorazon.classList.toggle("card__black");
-  });
-
-  const cardName = card.querySelector(".card__title");
-  cardName.textContent = data.name;
-  cards.append(card);
-
-  const postTrash = card.querySelector(".card__trash");
-  postTrash.addEventListener("click", function () {
-    card.remove();
-  });
-
-  const imageBig = document.querySelector(".popup-image");
-  cardImage.addEventListener("click", function () {
-    imageBig.showModal();
-    popupImageBig.src = data.link;
-    imageBigTitle.textContent = data.name;
-  });
-  popupClose.addEventListener("click", function () {
-    imageBig.close();
-  })
-
-
-}); */
 
 console.log(edicion);
 inicio.addEventListener("click", function unclick() {
@@ -190,39 +106,9 @@ addButton.addEventListener("click", async (e) => {
   const data = { name, link };
 
   try {
-    const newCard = await api.createCard(data); //ES CUANDO LA CREA EN EL SERVIDORs
+    const newCard = await api.createCard(data); //ES CUANDO LA CREA EN EL servidor
     renderCard(newCard, cards);
   } catch (err) {}
-
-  /*
-  const cardTemplate = document.querySelector("#card_template").content;
-  const card = cardTemplate.querySelector(".card").cloneNode(true);
-
-  const cardImage = card.querySelector(".card__image");
-  cardImage.src = link;
-  const postCorazon = card.querySelector(".card__button");
-
-  cardImage.alt = name;
-  postCorazon.addEventListener("click", function unclick() {
-    postCorazon.classList.toggle("card__black");
-  });
-
-  const cardName = card.querySelector(".card__title");
-  cardName.textContent = name;
-  cards.prepend(card);
-
-  const postTrash = card.querySelector(".card__trash");
-  postTrash.addEventListener("click", function () {
-    card.remove();
-  });
-  add.close();
-
-  const imageBig = document.querySelector(".popup-image");
-  cardImage.addEventListener("click", function () {
-    imageBig.showModal();
-    popupImageBig.src = link;
-    imageBigTitle.textContent = name;
-  });*/
 });
 
 const enableValidation = {
@@ -242,41 +128,3 @@ profileFormValideitor.enableValidation();
 
 const addCardValidator = new FormValideitor(enableValidation, add);
 addCardValidator.enableValidation();
-
-//enventos con validacion de formularios
-
-/* 
-const formulario= document.querySelector(".popup__form")
-
-inputName.addEventListener("blur", validar);
-inputHobbie.addEventListener("blur", validar);
-addTitle.addEventListener("blur", validar);
-addImage.addEventListener("blur", validar);
-
-function validar(evt) {
-  console.log(evt.target.validationMessage);
-
-  if (evt.target.value.trim() === "") {
-    mostrarAlerta(evt.target.validationMessage);
-  } else {
-    console.log("si hay algo")
-  }
-
-  console.log(evt.target.id)
-}
-
-function mostrarAlerta(mensaje, referencia) {
-  //generar una alerta 
-  const error= document.createElement("p"); // no va 
-  error.textContent = mensaje;
-
- //inyectar el error al formulario 
-
- //referencia.appendChild(error) // no va 
-
-
-
-
-}
-
- */

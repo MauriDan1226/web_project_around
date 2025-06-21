@@ -17,12 +17,12 @@ class FormValideitor {
     this._formElement = formElement;
   }
 
-   _showInputError = (formElement, inputElement, errorMessage) => {
+  _showInputError = (formElement, inputElement, errorMessage) => {
     const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
     inputElement.classList.add("form__input_type_error");
     errorElement.textContent = errorMessage;
     errorElement.classList.add("form__error_visible");
-    console.log("hola")
+    console.log("hola");
   };
 
   _hideInputError = (formElement, inputElement) => {
@@ -32,25 +32,28 @@ class FormValideitor {
     errorElement.textContent = "";
   };
 
-
   _checkInputValidity = (formElement, inputElement) => {
     if (!inputElement.validity.valid) {
-      this._showInputError(formElement, inputElement, inputElement.validationMessage);
+      this._showInputError(
+        formElement,
+        inputElement,
+        inputElement.validationMessage
+      );
     } else {
       this._hideInputError(formElement, inputElement);
     }
   };
 
-   _hasInvalidInput = (inputList) => {
-    console.log (inputList)
+  _hasInvalidInput = (inputList) => {
+    console.log(inputList);
     return inputList.some((inputElement) => {
       return !inputElement.validity.valid;
     });
   };
 
   _toggleButtonState = (inputList, buttonElement) => {
-    console.log (inputList)
-    
+    console.log(inputList);
+
     if (this._hasInvalidInput(inputList)) {
       buttonElement.classList.add(this._inactiveButtonClass);
     } else {
@@ -62,22 +65,23 @@ class FormValideitor {
     const inputList = Array.from(
       this._formElement.querySelectorAll(this._inputSelector)
     );
-    const buttonElement = this._formElement.querySelector(this._submitButtonSelector);
+    const buttonElement = this._formElement.querySelector(
+      this._submitButtonSelector
+    );
 
     // aquí, para comprobar el estado del botón al principio
-    this._toggleButtonState(inputList,buttonElement);
+    this._toggleButtonState(inputList, buttonElement);
     // Inicializar el estado del botón de submit
     inputList.forEach((inputElement) => {
-      inputElement.addEventListener("input", ()=> {
+      inputElement.addEventListener("input", () => {
         this._checkInputValidity(this._formElement, inputElement);
         // y aquí, para comprobarlo cada vez que haya cambios en la entrada de algún campo
         this._toggleButtonState(inputList, buttonElement);
       });
     });
-
   };
-  enableValidation(){
-    this._setEventListeners()
+  enableValidation() {
+    this._setEventListeners();
   }
 }
 
