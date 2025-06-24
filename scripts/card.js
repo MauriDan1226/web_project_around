@@ -13,7 +13,7 @@ class Card {
 
   //esto clona una card como una funcion privada,
   _pruebaPrivada() {
-    this._cardTemplate = document.querySelector(this._cardSelector).content;
+    this._cardTemplate = this._cardSelector.content;
     this._card = cardTemplate.querySelector(".card").cloneNode(true);
     return card;
   }
