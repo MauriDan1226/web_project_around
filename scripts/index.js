@@ -50,18 +50,26 @@ const createCard = (data) => {
   //es lo mismo que hacer c1=new card
 };
 
-const renderCard = (data, cards) => {
+/*const renderCard = (data, cards) => {
   cards.prepend(createCard(data));
-};
+};*/
 
 const loadInitialCards = async () => {
   try {
     const initialCards = await api.getInitialCards(); //inifinitamente
     console.log(initialCards);
-    initialCards.forEach((data) => {
-      console.log(data, cards);
-      renderCard(data, cards);
-    });
+
+    const cardlist = new Section(
+      {
+        items: initialCards,
+        renderer: () => {
+          cardlist.addItem(createCard(data));
+        },
+      },
+      ".gallery"
+    );
+
+    cardlist.render();
   } catch (err) {}
 };
 
