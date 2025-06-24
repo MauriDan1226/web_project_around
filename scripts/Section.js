@@ -7,7 +7,6 @@ export default class Section {
   }
 
   render() {
-    consol.log("render ", this._items);
     this._items.forEach((item) => {
       this._renderer(item);
     });

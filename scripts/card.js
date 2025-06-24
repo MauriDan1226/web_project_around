@@ -1,5 +1,6 @@
 class Card {
   constructor(data, cardSelector, handlerDelete, handelLike, handeRemoveLike) {
+    console.log(data);
     this._name = data.name;
     this._link = data.link;
     this._id = data._id;

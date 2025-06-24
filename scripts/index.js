@@ -63,6 +63,7 @@ const loadInitialCards = async () => {
         items: initialCards,
         renderer: (data) => {
           const cardElement = createCard(data);
+          console.log(cardElement);
           cardlist.addItem(cardElement);
         },
       },
