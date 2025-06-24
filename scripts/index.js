@@ -4,7 +4,6 @@ import FormValideitor from "./formValidator.js";
 import Section from "./Section.js";
 import PopupWithForm from "./PopupWithForm.js";
 import PopupWithImage from "./PopupWithImage.js";
-
 const popup = document.querySelector(".popup");
 const inputName = document.querySelector("#input-name");
 const inputHobbie = document.querySelector("#input-hobbie");
@@ -62,8 +61,9 @@ const loadInitialCards = async () => {
     const cardlist = new Section(
       {
         items: initialCards,
-        renderer: () => {
-          cardlist.addItem(createCard(data));
+        renderer: (data) => {
+          const cardElement = createCard(data);
+          cardlist.addItem(cardElement);
         },
       },
       ".gallery"

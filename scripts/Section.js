@@ -8,9 +8,7 @@ export default class Section {
 
   render() {
     consol.log("render ", this._items);
-    // this._renderer(this._items);
     this._items.forEach((item) => {
-      console.log("for each");
       this._renderer(item);
     });
   }

@@ -64,14 +64,14 @@ class Card {
 
     this._cardImage.addEventListener("click", () => {
       console.log("click cardima");
-      imageBig.showModal();
+      this._imageBig.showModal();
       popupImageBig.src = this._link;
       imageBigTitle.textContent = this._name;
     });
 
     this._popupClose = imageBig.querySelector(".popup__close");
-    popupClose.addEventListener("click", () => {
-      imageBig.close();
+    this._popupClose.addEventListener("click", () => {
+      this._imageBig.close();
     });
 
     console.log("regresando carta ", this._cardClonada);
