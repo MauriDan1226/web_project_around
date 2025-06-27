@@ -142,12 +142,23 @@
     </template>
     <dialog class="popup" id="popup-image">
       <div class="popup__info">
-        <div class="popup__close">
+        <button class="popup__close">
           <img src="./images/CloseIcon.png" alt="tache" />
-        </div>
+        </button>
         <img class="popup__photo" src="./images/1.jpg" alt="ejemplo" />
         <p class="popup__title">nombre de card</p>
       </div>
+    </dialog>
+    <!-- popup para confirmacion de eliminar immagen -->
+    <dialog class="popup" id="popup-delete-card">
+      <div class="popup__info">
+          <button class="popup__close" id="add-close">
+            <img src="./images/CloseIcon.png" alt="tache" />
+          </button>
+          <p class="popup__title">¿Estás seguro?</p>
+          <form class="popup__form" novalidate>
+            <button class="form__submit" type="submit">Sí</button>
+          </form>
     </dialog>
 
     <script type="module" src="./scripts/index.js"></script>

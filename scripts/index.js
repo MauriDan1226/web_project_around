@@ -4,6 +4,8 @@ import FormValideitor from "./formValidator.js";
 import Section from "./Section.js";
 import PopupWithForm from "./PopupWithForm.js";
 import PopupWithImage from "./PopupWithImage.js";
+import PopupWithConfirmation from "./PopupWithConfirmation.js";
+
 const popup = document.querySelector(".popup");
 const inputName = document.querySelector("#input-name");
 const inputHobbie = document.querySelector("#input-hobbie");
@@ -24,14 +26,27 @@ const imageBigTitle = document.querySelector(".popup__title");
 const popupImageBig = document.querySelector(".popup__photo");
 const popupClose = document.querySelector(".popup__close");
 const editProfileForm = document.querySelector("#edit-profile-form");
-
+const popoWithImage = new PopupWithImage("#popup-image");
+popoWithImage.setEventListeners();
+const popupDeleteCard = new PopupWithConfirmation("#popup-delete-card");
+popupDeleteCard.setEventListeners();
 const createCard = (data) => {
   return new Card(
     data,
     "#card_template",
+    //eliminar card
     (cardId, cardClonada) => {
-      api.deleteCard(cardId).then(() => {
-        cardClonada.removeCard();
+      popupDeleteCard.openPopup();
+
+      popupDeleteCard.setHandleConfirmDelete(() => {
+        api
+          .deleteCard(cardId)
+          .then(() => {
+            cardClonada._card.remove();
+          })
+          .catch((err) => {
+            console.error(`Error al eliminar la tarjeta: ${err}`);
+          });
       });
     },
     (cardId, cardClonada, isLiked) => {
@@ -44,6 +59,10 @@ const createCard = (data) => {
           cardClonada.likeCard();
         });
       }
+    },
+    (title, link) => {
+      console.log(title, link);
+      popoWithImage.open(title, link);
     }
   ).getTemplate();
   //es lo mismo que hacer c1=new card
@@ -52,6 +71,16 @@ const createCard = (data) => {
 /*const renderCard = (data, cards) => {
   cards.prepend(createCard(data));
 };*/
+
+api
+  .getUserInfo()
+  .then((userData) => {
+    inicioUsuario.textContent = userData.name;
+    inicioDescripcion.textContent = userData.about;
+  })
+  .catch((err) => {
+    console.error(`Error al obtener los datos del usuario: ${err}`);
+  });
 
 const loadInitialCards = async () => {
   try {
@@ -93,6 +122,16 @@ buttonSave.addEventListener("click", function unclick(e) {
   e.preventDefault();
   inicioUsuario.textContent = inputName.value;
   inicioDescripcion.textContent = inputHobbie.value;
+
+  api
+    .updateUserInfo({ name: inputName.value, about: inputHobbie.value })
+    .then((userData) => {
+      console.log(userData);
+    })
+    .catch((err) => {
+      console.error(`Error al obtener los datos del usuario: ${err}`);
+    });
+
   popup.close();
 });
 
@@ -137,3 +176,5 @@ profileFormValideitor.enableValidation();
 
 const addCardValidator = new FormValideitor(enableValidation, add);
 addCardValidator.enableValidation();
+
+//popup eliminar cards

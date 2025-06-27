@@ -1,5 +1,5 @@
 class Card {
-  constructor(data, cardSelector, handlerDelete, handelLike, handeRemoveLike) {
+  constructor(data, cardSelector, handlerDelete, handelLike, hadelImage) {
     console.log(data);
     this._name = data.name;
     this._link = data.link;
@@ -8,15 +8,16 @@ class Card {
     this._handlerDelete = handlerDelete;
     this._handelLike = handelLike;
     this._isLiked = data.isLiked;
-    this._handeRemoveLike = handeRemoveLike;
+    /*     this._handeRemoveLike = handeRemoveLike;
+     */ this._hadelImage = hadelImage;
     console.log("constructor card");
   }
 
   //esto clona una card como una funcion privada,
   _pruebaPrivada() {
-    this._cardTemplate = this._cardSelector.content;
-    this._card = cardTemplate.querySelector(".card").cloneNode(true);
-    return card;
+    this._cardTemplate = document.querySelector(this._cardSelector).content;
+    this._card = this._cardTemplate.querySelector(".card").cloneNode(true);
+    return this._card;
   }
   removeCard() {
     this._cardClonada.remove();
@@ -30,6 +31,7 @@ class Card {
   getTemplate() {
     console.log("gettemplate");
     this._cardClonada = this._pruebaPrivada();
+
     this._cardTitle = this._cardClonada.querySelector(".card__title");
     this._addImage = this._cardClonada.querySelector("#add-image");
     this._cardImage = this._cardClonada.querySelector(".card__image");
@@ -37,7 +39,7 @@ class Card {
     this._postTrash = this._cardClonada.querySelector(".card__trash");
     this._postCorazon = this._cardClonada.querySelector(".card__button");
     this._imageBig = document.querySelector("#popup-image");
-    this._popupImageBig = imageBig.querySelector(".popup__photo");
+    this._popupImageBig = this._imageBig.querySelector(".popup__photo");
     this._imageBigTitle = document.querySelector(".popup__title");
 
     this._cardTitle.textContent = this._name;
@@ -63,19 +65,17 @@ class Card {
       console.log("click coraon");
     });
 
+    //abrir popup de la imagen
     this._cardImage.addEventListener("click", () => {
       console.log("click cardima");
-      this._imageBig.showModal();
-      popupImageBig.src = this._link;
-      imageBigTitle.textContent = this._name;
+      this._hadelImage(this._name, this._link);
     });
 
-    this._popupClose = imageBig.querySelector(".popup__close");
+    this._popupClose = this._imageBig.querySelector(".popup__close");
     this._popupClose.addEventListener("click", () => {
       this._imageBig.close();
     });
 
-    console.log("regresando carta ", this._cardClonada);
     return this._cardClonada;
   }
 }

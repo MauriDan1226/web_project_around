@@ -6,7 +6,6 @@
   background-color: #ffffff;
   border: none;
   border-radius: 5%;
-  padding: 14px;
 }
 
 .popup {
@@ -33,11 +32,20 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
 }
+
+.popup_opened {
+  display: block;
+  position: fixed;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  height: 100%;
+  width: 100%;
+}
+
 .popup__close {
   background-color: transparent;
-  top: 0px;
-  right: 0px;
-  border: 50px;
+  top: -40px;
+  right: -40px;
   width: 40px;
   height: 40px;
   position: absolute;
@@ -108,12 +116,14 @@
   align-items: center;
 }
 .popup__info {
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
   background-color: transparent;
   align-items: center;
   justify-items: center;
   position: relative;
+  background-color: #ffffff;
 }
 .popup__photo {
   border-radius: 23px;
