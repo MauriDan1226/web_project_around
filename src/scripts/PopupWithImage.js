@@ -14,8 +14,5 @@ export default class PopupWithImage extends Popup {
 
   closePopup() {
     super.closePopup();
-    console.log(
-      "AQUI EL SUPER SERIA ALIGATORIO POR QUE LE AGREGUE ESTE CONSOLE LOG"
-    );
   }
 }

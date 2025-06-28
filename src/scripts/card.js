@@ -1,6 +1,5 @@
 class Card {
   constructor(data, cardSelector, handlerDelete, handelLike, hadelImage) {
-    console.log(data);
     this._name = data.name;
     this._link = data.link;
     this._id = data._id;
@@ -8,9 +7,7 @@ class Card {
     this._handlerDelete = handlerDelete;
     this._handelLike = handelLike;
     this._isLiked = data.isLiked;
-    /*     this._handeRemoveLike = handeRemoveLike;
-     */ this._hadelImage = hadelImage;
-    console.log("constructor card");
+    this._hadelImage = hadelImage;
   }
 
   //esto clona una card como una funcion privada,
@@ -25,11 +22,9 @@ class Card {
 
   likeCard() {
     this._postCorazon.classList.toggle("card__black");
-    console.log(this._postCorazon);
   }
 
   getTemplate() {
-    console.log("gettemplate");
     this._cardClonada = this._pruebaPrivada();
 
     this._cardTitle = this._cardClonada.querySelector(".card__title");
@@ -46,8 +41,6 @@ class Card {
     this._cardImage.src = this._link;
 
     this._postTrash.addEventListener("click", () => {
-      console.log("click basura");
-
       this._handlerDelete(this._id, this);
     });
 
@@ -61,13 +54,10 @@ class Card {
 
     this._postCorazon.addEventListener("click", () => {
       this._handelLike(this._id, this, this._isLiked);
-
-      console.log("click coraon");
     });
 
     //abrir popup de la imagen
     this._cardImage.addEventListener("click", () => {
-      console.log("click cardima");
       this._hadelImage(this._name, this._link);
     });
 

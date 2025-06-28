@@ -61,7 +61,6 @@ const createCard = (data) => {
       }
     },
     (title, link) => {
-      console.log(title, link);
       popoWithImage.open(title, link);
     }
   ).getTemplate();
@@ -85,14 +84,12 @@ api
 const loadInitialCards = async () => {
   try {
     const initialCards = await api.getInitialCards(); //inifinitamente
-    console.log(initialCards);
 
     const cardlist = new Section(
       {
         items: initialCards,
         renderer: (data) => {
           const cardElement = createCard(data);
-          console.log(cardElement);
           cardlist.addItem(cardElement);
         },
       },
@@ -105,7 +102,6 @@ const loadInitialCards = async () => {
 
 loadInitialCards();
 
-console.log(edicion);
 inicio.addEventListener("click", function unclick() {
   popup.showModal();
   inputName.value = inicioUsuario.textContent;
@@ -125,9 +121,7 @@ buttonSave.addEventListener("click", function unclick(e) {
 
   api
     .updateUserInfo({ name: inputName.value, about: inputHobbie.value })
-    .then((userData) => {
-      console.log(userData);
-    })
+    .then((userData) => {})
     .catch((err) => {
       console.error(`Error al obtener los datos del usuario: ${err}`);
     });

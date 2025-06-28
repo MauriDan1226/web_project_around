@@ -22,7 +22,6 @@ class FormValideitor {
     inputElement.classList.add("form__input_type_error");
     errorElement.textContent = errorMessage;
     errorElement.classList.add("form__error_visible");
-    console.log("hola");
   };
 
   _hideInputError = (formElement, inputElement) => {
@@ -45,15 +44,12 @@ class FormValideitor {
   };
 
   _hasInvalidInput = (inputList) => {
-    console.log(inputList);
     return inputList.some((inputElement) => {
       return !inputElement.validity.valid;
     });
   };
 
   _toggleButtonState = (inputList, buttonElement) => {
-    console.log(inputList);
-
     if (this._hasInvalidInput(inputList)) {
       buttonElement.classList.add(this._inactiveButtonClass);
     } else {
